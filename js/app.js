@@ -78,6 +78,10 @@ function updateCalculator() {
 calcThickness.addEventListener('input', updateCalculator);
 calcArea.addEventListener('input', updateCalculator);
 
+// Инициализация калькулятора при загрузке страницы,
+// чтобы сразу показать корректные цифры (а не пустые/дефолтные значения из HTML)
+updateCalculator();
+
 // Form handlers
 function handleSubmit(e) {
   e.preventDefault();
