@@ -59,9 +59,10 @@ function updateCalculator() {
   areaValue.textContent = area;
   
   // Price calculation logic
-  const materialPerM2 = thickness * 3; // rubles per m2 per mm
-  const workPerM2 = 120;
-  const coatingPerM2 = 30;
+  // Итоговая цена за м²: 50мм=1050₽, 70мм=1450₽, 100мм=2050₽ (20₽ за мм + 50₽ база)
+  const materialPerM2 = thickness * 20; // rubles per m2 per mm
+  const workPerM2 = 40;
+  const coatingPerM2 = 10;
   
   const materialCost = Math.round(materialPerM2 * area);
   const workCost = Math.round(workPerM2 * area);
