@@ -96,6 +96,28 @@ function handleModalSubmit(e) {
   e.target.reset();
 }
 
+// Reviews pagination
+const REVIEWS_PER_PAGE = 3;
+let reviewsVisibleCount = REVIEWS_PER_PAGE;
+
+function renderReviews() {
+  const cards = document.querySelectorAll('#reviewsGrid .review-card');
+  cards.forEach((card, i) => {
+    card.style.display = i < reviewsVisibleCount ? '' : 'none';
+  });
+  const btn = document.getElementById('loadMoreReviews');
+  if (btn) {
+    btn.style.display = reviewsVisibleCount >= cards.length ? 'none' : '';
+  }
+}
+
+function loadMoreReviews() {
+  reviewsVisibleCount += REVIEWS_PER_PAGE;
+  renderReviews();
+}
+
+renderReviews();
+
 // Header scroll effect
 let lastScroll = 0;
 window.addEventListener('scroll', () => {
